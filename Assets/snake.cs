@@ -11,7 +11,7 @@ public class snake : MonoBehaviour
 
     public int initialSize = 3;    
 
-    // snake body
+    // game start
     private void Start()
     {
         ResetState();
