@@ -6,6 +6,7 @@ public class snake : MonoBehaviour
     private Vector2 p1_direction = Vector2.right;    // by default snake will move right
 
     private List<Transform> snake_body;     // snake body, list of transforms
+
     public Transform snake_prefab;          // body prefab in inspector
 
     // snake body
@@ -31,20 +32,30 @@ public class snake : MonoBehaviour
         }
     }
 
-    // snake movement
+    // iterate in reverse order, update the head last
+    // first segment moves to next position
+    // segments follow the one in front
     private void FixedUpdate()
     {
+        for(int i = snake_body.Count -1; i > 0; i--) 
+        {
+            snake_body[i].position = snake_body[i - 1].position;
+        }
+        
+        // snake movement
         this.transform.position = new Vector3 (
             Mathf.Round(this.transform.position.x) + p1_direction.x,
             Mathf.Round(this.transform.position.y) + p1_direction.y,
             0.0f );
     }
-
+    
     private void Grow()
     {
-        Transform snake_body = Instiantiate(this.snake_prefab); 
-        snake_body.position = snake_body[snake_body.Count - 1].position;    // new position at end of snake body
-        snake_body.Add(snake_prefab);
+        Transform segment = Instantiate(this.snake_prefab); 
+        // new position at end of snake body
+        segment.position = snake_body[snake_body.Count - 1].position;
+
+        snake_body.Add(segment);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
