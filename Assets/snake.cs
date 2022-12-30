@@ -5,13 +5,17 @@ public class snake : MonoBehaviour
 {
     private Vector2 p1_direction = Vector2.right;    // by default snake will move right
 
-    private List<Transform> snake_body;     // snake body, list of transforms
-
+    private List<Transform> snake_body = new List<Transform>();     // snake body, list of transforms
+    // instantiate immediately
     public Transform snake_prefab;          // body prefab in inspector
+
+    public int initialSize = 7;    
 
     // snake body
     private void Start()
     {
+        ResetState();
+
         snake_body = new List<Transform>();
         snake_body.Add(this.transform);
     }
@@ -57,11 +61,30 @@ public class snake : MonoBehaviour
 
         snake_body.Add(segment);
     }
+    
+    private void ResetState()
+    {
+        for(int i = 1; i < snake_body.Count; i++) {
+            Destroy(snake_body[i].gameObject);
+        }
+
+        snake_body.Clear();
+        snake_body.Add(this.transform);
+
+        for(int i = 1; i < this.initialSize; i++) {
+            snake_body.Add(Instantiate(this.snake_prefab));
+        }
+
+        this.transform.position = Vector3.zero;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "food") {
+        if(other.tag == "food") {
             Grow();
+        }
+        else if(other.tag == "obstacle") {
+            ResetState();       // reset game
         }
     }
 

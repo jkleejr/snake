@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 558342555}
   m_Layer: 0
   m_Name: Wall right
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 752023185}
   m_Layer: 0
   m_Name: Wall bot
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 1373558374}
   m_Layer: 0
   m_Name: Wall left
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -825,7 +825,7 @@ GameObject:
   - component: {fileID: 1836569795}
   m_Layer: 0
   m_Name: Wall top
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

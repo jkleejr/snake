@@ -6,6 +6,7 @@ TagManager:
   tags:
   - p1
   - food
+  - obstacle
   layers:
   - Default
   - TransparentFX
