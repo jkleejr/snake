@@ -4,20 +4,19 @@ using UnityEngine;
 public class snake : MonoBehaviour
 {
     private Vector2 p1_direction = Vector2.right;    // by default snake will move right
-
+    // instantiate
     private List<Transform> snake_body = new List<Transform>();     // snake body, list of transforms
-    // instantiate immediately
+
     public Transform snake_prefab;          // body prefab in inspector
 
-    public int initialSize = 7;    
+    public int initialSize = 3;    
 
     // snake body
     private void Start()
     {
         ResetState();
-
-        snake_body = new List<Transform>();
-        snake_body.Add(this.transform);
+        // snake_body = new List<Transform>();
+        // snake_body.Add(this.transform);
     }
 
     private void Update()       // every frame on game object

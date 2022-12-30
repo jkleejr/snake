@@ -576,6 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snake_prefab: {fileID: 7687725867600203228, guid: e7474e6657e6b4717aa1c35ff415372d, type: 3}
+  initialSize: 7
 --- !u!1 &1168355534
 GameObject:
   m_ObjectHideFlags: 0
